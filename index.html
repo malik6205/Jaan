@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#09040f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>For My Rabeya ❤️</title>
+<title>For Someone Special ❤️</title>
 
 <style>
 :root{
@@ -719,6 +719,76 @@ footer strong{
     scroll-behavior:auto!important;
   }
 }
+
+/* MOBILE STABILITY PATCH */
+html, body{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow-x:hidden;
+}
+
+body{
+  position:relative;
+  overscroll-behavior-x:none;
+  -webkit-overflow-scrolling:touch;
+}
+
+*, *::before, *::after{
+  max-width:100%;
+}
+
+.hero{
+  min-height:100dvh;
+  min-height:100svh;
+  overflow:hidden;
+  contain:layout paint;
+}
+
+section, header, footer{
+  max-width:100%;
+  overflow-x:clip;
+}
+
+.panel{
+  max-width:100%;
+  overflow:hidden;
+}
+
+.floating,
+.star{
+  will-change:transform, opacity;
+  contain:layout style paint;
+}
+
+@media(max-width:699px){
+  .hero{
+    min-height:calc(100dvh - 76px);
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .hero-heart,
+  .intro-heart,
+  .login-heart,
+  .cinema-heart{
+    transform:translateZ(0);
+    backface-visibility:hidden;
+  }
+
+  .bottom-nav,
+  .music{
+    transform:translateZ(0);
+    backface-visibility:hidden;
+  }
+
+  .bottom-nav{
+    left:10px;
+    right:10px;
+    width:auto;
+  }
+}
+
 </style>
 </head>
 
@@ -806,8 +876,8 @@ Please enable JavaScript to open this page. ❤️
     <div class="hero-heart">❤️</div>
 
     <h1>
-      My Heart Has A Name
-      <span>Rabeya Basri ❤️</span>
+      For Someone Special
+      <span>❤️</span>
     </h1>
 
     <p class="hero-sub">
