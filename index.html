@@ -1,0 +1,2337 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#09040f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>For Someone Special ❤️</title>
+
+<style>
+:root{
+  --bg:#09040f;
+  --card:rgba(255,255,255,.075);
+  --card2:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.13);
+  --pink:#ff4f91;
+  --rose:#ff9fc2;
+  --purple:#9c72ff;
+  --text:#fff6fb;
+  --muted:#d7becb;
+  --good:#75f5bd;
+  --bad:#ff6e93;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Poppins,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 5%,rgba(156,114,255,.18),transparent 28%),
+    radial-gradient(circle at 90% 22%,rgba(255,79,145,.15),transparent 30%),
+    radial-gradient(circle at 50% 90%,rgba(255,159,194,.08),transparent 35%),
+    var(--bg);
+  overflow-x:hidden;
+  padding-bottom:76px;
+}
+
+body.locked{
+  overflow:hidden;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+section{
+  width:min(100%,980px);
+  margin:auto;
+  padding:64px 16px;
+}
+
+.panel{
+  background:linear-gradient(145deg,var(--card),var(--card2));
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:24px;
+  box-shadow:0 24px 70px rgba(0,0,0,.32);
+  backdrop-filter:blur(16px);
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:24px;
+}
+
+.section-title h2{
+  font-size:clamp(25px,7vw,34px);
+  line-height:1.2;
+}
+
+.section-title p{
+  color:var(--muted);
+  margin-top:8px;
+  line-height:1.65;
+  font-size:14px;
+}
+
+.btn{
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;
+  padding:13px 18px;
+  color:#fff;
+  background:linear-gradient(135deg,#ff3f82,#9566ff);
+  box-shadow:0 10px 30px rgba(255,63,130,.2);
+  transition:.22s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 35px rgba(255,63,130,.3);
+}
+
+.btn:active{
+  transform:scale(.97);
+}
+
+.btn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.small-btn{
+  padding:10px 14px;
+  font-size:13px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* LOGIN */
+
+#login{
+  position:fixed;
+  inset:0;
+  z-index:999999;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 50% 0,#4b163b,transparent 38%),
+    radial-gradient(circle at 10% 90%,#241950,transparent 32%),
+    #050208;
+}
+
+.login-card{
+  width:min(410px,100%);
+  padding:34px 22px;
+  text-align:center;
+  border-radius:30px;
+  background:#ffffff09;
+  border:1px solid #ffffff1b;
+  backdrop-filter:blur(25px);
+  box-shadow:0 30px 100px #000;
+}
+
+.login-heart{
+  font-size:68px;
+  animation:pulse 1.5s infinite;
+}
+
+.login-card h1{
+  font-size:28px;
+  margin:10px 0 8px;
+}
+
+.login-card p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+#password{
+  width:100%;
+  padding:15px;
+  border-radius:15px;
+  border:1px solid #ffffff18;
+  background:#0004;
+  color:#fff;
+  outline:0;
+  text-align:center;
+  letter-spacing:2px;
+}
+
+#password:focus{
+  border-color:#ff78a8;
+  box-shadow:0 0 0 3px #ff4f9120;
+}
+
+.login-card .btn{
+  width:100%;
+  margin-top:10px;
+}
+
+#error{
+  min-height:22px;
+  color:#ff87ad;
+  font-size:13px;
+  margin-top:9px;
+}
+
+.shake{
+  animation:shake .35s ease;
+}
+
+/* INTRO */
+
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:999998;
+  display:none;
+  place-items:center;
+  text-align:center;
+  background:#050208;
+  transition:opacity .8s;
+}
+
+.intro-heart{
+  font-size:90px;
+  animation:heartbeat 1s infinite;
+}
+
+#intro h1{
+  font-size:34px;
+  margin:16px 0 7px;
+}
+
+#intro p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:34px 16px;
+  position:relative;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#ffffff09;
+  border:1px solid #ffffff16;
+  color:#ffc2d9;
+  font-size:10px;
+  letter-spacing:1.6px;
+}
+
+.hero-heart{
+  font-size:76px;
+  margin:17px 0;
+  animation:heartbeat 1.5s infinite;
+}
+
+.hero h1{
+  font-size:clamp(38px,11vw,70px);
+  line-height:1.02;
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#ff7bab,#c49cff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-sub{
+  font-size:16px;
+  color:#e5cbd8;
+  max-width:650px;
+  margin:17px auto;
+  line-height:1.8;
+}
+
+.hero-buttons{
+  display:grid;
+  gap:10px;
+  margin-top:22px;
+}
+
+.scroll{
+  margin-top:30px;
+  color:#9e8796;
+  font-size:10px;
+  letter-spacing:1.8px;
+}
+
+/* FLOATING */
+
+.star{
+  position:fixed;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:#fff;
+  opacity:.5;
+  z-index:0;
+  animation:twinkle 2s infinite alternate;
+  pointer-events:none;
+}
+
+.floating{
+  position:fixed;
+  bottom:-30px;
+  z-index:5;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+}
+
+/* TIMELINE */
+
+.timeline{
+  position:relative;
+  display:grid;
+  gap:18px;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:15px;
+  top:5px;
+  bottom:5px;
+  width:2px;
+  background:linear-gradient(#ff4f91,#9b6cff);
+  opacity:.55;
+}
+
+.timeline-item{
+  position:relative;
+  padding-left:40px;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:5px;
+  top:4px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff4f91,#9b6cff);
+  box-shadow:0 0 20px #ff4f9140;
+}
+
+.timeline-item h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.timeline-item p{
+  color:#dcbccc;
+  line-height:1.75;
+  font-size:14px;
+}
+
+/* TIMER */
+
+.timer{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.tbox{
+  text-align:center;
+  padding:17px 6px;
+  border-radius:18px;
+  background:#ffffff08;
+  border:1px solid #ffffff10;
+}
+
+.tbox b{
+  display:block;
+  font-size:25px;
+  color:#ff82aa;
+}
+
+.tbox small{
+  color:#aa92a0;
+  letter-spacing:1px;
+  font-size:9px;
+}
+
+/* LETTER */
+
+.letter{
+  line-height:1.95;
+  color:#ead7df;
+}
+
+.letter h3{
+  margin:28px 0 10px;
+  color:#ffb0c9;
+  font-size:19px;
+}
+
+.letter p{
+  font-size:15px;
+  margin-bottom:16px;
+}
+
+.letter em{
+  color:#ffc1d5;
+}
+
+.letter strong{
+  color:#ffd0df;
+}
+
+.love-line{
+  font-size:22px!important;
+  font-weight:800;
+  color:#ffb0c9;
+  text-align:center;
+  line-height:1.65!important;
+}
+
+/* CHAPTERS */
+
+.chapter{
+  text-align:center;
+  min-height:360px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.chapter small{
+  color:#ff8fb5;
+  letter-spacing:3px;
+}
+
+.chapter h3{
+  font-size:26px;
+  margin:12px 0;
+}
+
+.chapter p{
+  color:#e2cbd6;
+  line-height:1.9;
+}
+
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.chapter-progress{
+  height:5px;
+  background:#ffffff0d;
+  border-radius:99px;
+  margin:20px auto 0;
+  max-width:400px;
+  width:100%;
+  overflow:hidden;
+}
+
+.chapter-progress i{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#ff4f91,#9b6cff);
+  transition:.35s;
+}
+
+/* FUTURE / FINAL */
+
+.future-door{
+  text-align:center;
+}
+
+.future-message,
+.capsule-message{
+  display:none;
+  color:#ffe1eb;
+  line-height:1.9;
+  margin-top:18px;
+  text-align:center;
+}
+
+.show{
+  display:block!important;
+  animation:fade .7s;
+}
+
+.final{
+  text-align:center;
+  padding:40px 18px;
+  background:linear-gradient(145deg,#3d102e,#17102c);
+  border-radius:28px;
+  border:1px solid #ffffff16;
+}
+
+.final h2{
+  font-size:27px;
+}
+
+.final p{
+  color:#dcbccc;
+  margin:10px 0 22px;
+  line-height:1.7;
+}
+
+#finalMsg{
+  display:none;
+  color:#ffe1eb;
+  font-size:19px;
+  line-height:1.9;
+}
+
+/* CINEMATIC */
+
+#cinema{
+  position:fixed;
+  inset:0;
+  z-index:100000;
+  background:#030106;
+  display:none;
+  place-items:center;
+  text-align:center;
+  padding:25px;
+}
+
+.cinema-heart{
+  font-size:90px;
+  animation:heartbeat 1s infinite;
+}
+
+#cinemaText{
+  font-size:clamp(23px,7vw,42px);
+  line-height:1.45;
+  margin-top:18px;
+}
+
+#cinemaSub{
+  color:#ff9fbd;
+  margin-top:14px;
+}
+
+#cinemaClose{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:45px;
+  height:45px;
+  border:1px solid #ffffff25;
+  border-radius:50%;
+  background:#ffffff12;
+  color:#fff;
+  font-size:28px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  z-index:9000;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  padding:8px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:4px;
+  background:rgba(15,7,22,.86);
+  border:1px solid #ffffff18;
+  border-radius:22px;
+  backdrop-filter:blur(20px);
+  box-shadow:0 15px 45px #0008;
+}
+
+.bottom-nav a{
+  font-size:10px;
+  color:#cdb6c2;
+  text-align:center;
+  padding:8px 3px;
+  border-radius:15px;
+}
+
+.music{
+  position:fixed;
+  right:14px;
+  bottom:88px;
+  z-index:9001;
+  width:50px;
+  height:50px;
+  border:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff4f91,#9b6cff);
+  color:#fff;
+  font-size:20px;
+  box-shadow:0 10px 35px #000;
+}
+
+#toast{
+  position:fixed;
+  z-index:100001;
+  left:50%;
+  bottom:75px;
+  transform:translate(-50%,130px);
+  background:#160b1bee;
+  border:1px solid #ffffff18;
+  padding:11px 16px;
+  border-radius:999px;
+  transition:.35s;
+  color:#fff;
+  text-align:center;
+  white-space:nowrap;
+  max-width:92%;
+  font-size:13px;
+}
+
+#toast.show{
+  transform:translate(-50%,0);
+}
+
+footer{
+  text-align:center;
+  color:#a9909e;
+  padding:40px 20px 90px;
+  line-height:1.8;
+  font-size:12px;
+}
+
+footer strong{
+  color:#ff8fb5;
+}
+
+/* ANIMATIONS */
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-7px)}
+  75%{transform:translateX(7px)}
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0) rotate(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes twinkle{
+  from{opacity:.15}
+  to{opacity:.9}
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@media(min-width:700px){
+  body{
+    padding-bottom:0;
+  }
+
+  .hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .timer{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .bottom-nav{
+    display:none;
+  }
+
+  .music{
+    bottom:18px;
+  }
+
+  .chapter{
+    min-height:400px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.001ms!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+/* MOBILE STABILITY PATCH */
+html, body{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow-x:hidden;
+}
+
+body{
+  position:relative;
+  overscroll-behavior-x:none;
+  -webkit-overflow-scrolling:touch;
+}
+
+*, *::before, *::after{
+  max-width:100%;
+}
+
+.hero{
+  min-height:100dvh;
+  min-height:100svh;
+  overflow:hidden;
+  contain:layout paint;
+}
+
+section, header, footer{
+  max-width:100%;
+  overflow-x:clip;
+}
+
+.panel{
+  max-width:100%;
+  overflow:hidden;
+}
+
+.floating,
+.star{
+  will-change:transform, opacity;
+  contain:layout style paint;
+}
+
+@media(max-width:699px){
+  .hero{
+    min-height:calc(100dvh - 76px);
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .hero-heart,
+  .intro-heart,
+  .login-heart,
+  .cinema-heart{
+    transform:translateZ(0);
+    backface-visibility:hidden;
+  }
+
+  .bottom-nav,
+  .music{
+    transform:translateZ(0);
+    backface-visibility:hidden;
+  }
+
+  .bottom-nav{
+    left:10px;
+    right:10px;
+    width:auto;
+  }
+}
+
+</style>
+</head>
+
+<body class="locked">
+
+<noscript>
+<div style="position:fixed;inset:0;z-index:999999;background:#07030d;color:white;display:grid;place-items:center;padding:30px;text-align:center">
+Please enable JavaScript to open this page. ❤️
+</div>
+</noscript>
+
+<!-- LOGIN -->
+
+<div id="login">
+  <div class="login-card" id="loginCard">
+
+    <div class="login-heart">🔐</div>
+
+    <h1>✨ Only For Someone Special ❤️</h1>
+
+    <p>
+      Ye little world har kisi ke liye nahi hai…<br>
+      bas uss ek khaas insaan ke liye,<br>
+      jiske aane se dil thoda aur khoobsurat lagta hai. 🥹💕
+      <br><br>
+
+      <span style="opacity:.8">
+        Yahan kuch lafz hain, kuch yaadein hain,<br>
+        aur ek chhoti si duniya…<br>
+        jo shayad tumhare liye hi bani hai. 🌙❤️
+      </span>
+
+      <br><br>
+
+      <strong>
+        Aao… andar ek kahani tumhara intezaar kar rahi hai. ❤️
+      </strong>
+    </p>
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Enter secret password"
+      autocomplete="off"
+      aria-label="Secret password"
+      aria-describedby="error"
+    >
+
+    <button class="btn" onclick="unlock()">
+      Enter My World ❤️
+    </button>
+
+    <div id="error" aria-live="polite"></div>
+
+  </div>
+</div>
+</div>
+
+<!-- INTRO -->
+
+<div id="intro">
+  <div>
+    <div class="intro-heart">❤️</div>
+
+    <h1>Welcome, Baby</h1>
+
+    <p>
+      Ek chhoti si duniya tumhare liye banayi hai...
+      <br>
+      From your Jaan, with love. ✨
+    </p>
+  </div>
+</div>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+  <div>
+
+    <div class="badge">
+      A LITTLE SECRET WORLD • JUST FOR YOU • ❤️
+    </div>
+
+    <div class="hero-heart">❤️</div>
+
+    <h1>
+      For Someone Special
+      <span>❤️</span>
+    </h1>
+
+    <p class="hero-sub">
+      My Baby. My Sweetheart. My Janu. My Sona. 🌹
+      <br>
+      Welcome to this little world,
+      <strong>made with all my heart, just for you.</strong>
+    </p>
+
+    <div class="hero-buttons">
+
+      <a class="btn" href="#firstMeet">
+        Begin Our Story 🌹
+      </a>
+
+      <a class="btn" href="#letter">
+        Open My Heart 💌
+      </a>
+
+    </div>
+
+    <div class="scroll">
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- FIRST MEETING -->
+
+<section id="firstMeet">
+
+  <div class="section-title">
+
+    <h2>🌹 16 July 2018</h2>
+
+    <p>
+      In front of Atithi Palace —
+      ek special milestone in our story.
+    </p>
+
+  </div>
+
+  <div class="panel chapter">
+
+    <small>THE SPECIAL DAY</small>
+
+    <h3>
+      In Front of Atithi Palace ❤️
+    </h3>
+
+    <p>
+      16 July 2018 ko hum pehli baar
+      is special moment ke saath jude.
+      Shayad us waqt humein idea nahi tha
+      ki ye memory future mein itni important
+      ho jayegi.
+    </p>
+
+    <p style="margin-top:18px">
+      <strong>
+        Kuch moments chhote hote hain,
+        lekin unki yaad bahut badi hoti hai. ❤️
+      </strong>
+    </p>
+
+  </div>
+
+</section>
+
+<!-- TIMER -->
+
+<section id="time">
+
+  <div class="section-title">
+
+    <h2>⏳ Since 16 July 2018</h2>
+
+    <p>
+      Time badalta gaya…
+      lekin humari story aage badhti rahi. ❤️
+    </p>
+
+  </div>
+
+  <div class="panel">
+
+    <div class="timer">
+
+      <div class="tbox">
+        <b id="days">0</b>
+        <small>DAYS</small>
+      </div>
+
+      <div class="tbox">
+        <b id="hours">0</b>
+        <small>HOURS</small>
+      </div>
+
+      <div class="tbox">
+        <b id="minutes">0</b>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="tbox">
+        <b id="seconds">0</b>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COMPLETE TIMELINE -->
+
+<section id="timeline">
+
+  <div class="section-title">
+
+    <h2>🕰️ Our Real Story</h2>
+
+    <p>
+      Har chapter ka apna meaning hai.
+      Aur kahani abhi khatam nahi hui. ❤️
+    </p>
+
+  </div>
+
+  <div class="panel timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>🌸 01 • Childhood</h3>
+      <p>
+        Hum bachpan mein mile the aur friends the.
+        Saath mein hasi, masti aur childhood enjoy kiya —
+        bina ye jaane ki ye memories ek din
+        kitni important ban jayengi.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>🏠 02 • Moved Away</h3>
+      <p>
+        Main doosre ghar shift ho gaya,
+        contact toot gaya aur distance aa gaya.
+        Tab dheere-dheere samajh aaya ki
+        tumhari presence mere liye kitni important thi.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>💍 03 • Mamma's Wedding</h3>
+      <p>
+        Tum Mamma ki shaadi mein aayi thi.
+        Tumhe dekhkar dil mein propose karne ka mann hua,
+        lekin dosti khone ka darr tha.
+        Isliye feelings dil mein hi reh gayi.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>🌹 05 • In Front of Atithi Palace</h3>
+      <p>
+        16 July 2018 —
+        humari story ka ek special milestone.
+        In front of Atithi Palace,
+        ek simple moment future ki ek beautiful memory ban gaya.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>🏫 06 • School</h3>
+      <p>
+        Tum mere school mein aayi.
+        School rules ki wajah se hum utna nahi mil paaye
+        jitna main chahta tha,
+        lekin messages ne connection ko alive rakha.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>🚗 07 • Little Outings</h3>
+      <p>
+        Rajdhani Hotel, Malayepur Dhaba
+        aur doosri little outings special rahi.
+        Jagah se zyada important tum thi. ❤️
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>💋 08 • First & Last Kiss</h3>
+      <p>
+        Woh memory aaj bhi yaad hai.
+        Time aage badh gaya,
+        lekin woh special moment
+        humari story ka ek unforgettable chapter ban gaya.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>💔 09 • Separation</h3>
+      <p>
+        Misunderstandings, mistakes aur circumstances
+        ki wajah se hum alag hue.
+        Lekin feelings aur memories dil mein rahi.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>📞 10 • The Missed Call</h3>
+      <p>
+        Tumhara unexpected call aaya.
+        Mera exam tha aur main phone receive nahi kar paya.
+        Baad mein tumhara number tumhare friend se mila,
+        aur kahani ne phir ek naya turn liya.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>♾️ 11 • We Reunited</h3>
+      <p>
+        Dooriyan aur misunderstandings ke baad
+        hum phir ek doosre tak pahunch gaye.
+        Kahani ko ek aur chance mila. ❤️
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>💗 12 • Sister's Wedding</h3>
+      <p>
+        Tum pink dress mein bahut hi pyaari lag rahi thi.
+        Mann tha tumhare saath picture loon,
+        tumse baat karun,
+        lekin na picture ho paayi na baat.
+        Phir bhi tumhe dekh paana mere liye kaafi tha. ❤️
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <h3>❤️ 13 • Going On</h3>
+      <p>
+        Ye humari story ka ending nahi hai.
+        Ye bas woh point hai jahan hum aaj khade hain.
+        Aage ke chapters abhi likhne baaki hain. ♾️
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CHAPTERS -->
+
+<section id="chapters">
+
+  <div class="section-title">
+
+    <h2>🎬 Our 12 Chapters</h2>
+
+    <p>
+      Ek-ek memory ko slowly feel karo. ❤️
+    </p>
+
+  </div>
+
+  <div class="panel chapter">
+
+    <small>
+      CHAPTER
+      <span id="chapterNo">01</span>
+      / 12
+    </small>
+
+    <h3 id="chapterTitle"></h3>
+
+    <p id="chapterText"></p>
+
+    <div class="chapter-progress">
+      <i id="chapterProgress"></i>
+    </div>
+
+    <div class="nav">
+
+      <button
+        class="btn small-btn"
+        id="prevBtn"
+        onclick="prevChapter()"
+      >
+        ← Previous
+      </button>
+
+      <button
+        class="btn small-btn"
+        id="nextBtn"
+        onclick="nextChapter()"
+      >
+        Next →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LETTER -->
+
+<section id="letter">
+
+  <div class="section-title">
+
+    <h2>💌 Tumhare Jaan Ki Dil Se Likhi Hui Chitthi</h2>
+
+    <p>
+      Meri Ayesha, meri Sona, meri Jaan... ❤️
+    </p>
+
+  </div>
+
+  <div class="panel letter">
+
+    <p class="love-line">
+      Meri Ayesha... ❤️
+    </p>
+
+    <p>
+      <em>
+        “Bachpan ki woh dosti kuch aisi thi,
+        na ishq ka pata tha,
+        na mohabbat ka naam,
+        bas saath rehna accha lagta tha.”
+      </em>
+    </p>
+
+    <p>
+      Hum jab bachpan mein mile the na,
+      tab hum bas <strong>friends</strong> the.
+      Saath mein hasna, masti karna,
+      apna childhood enjoy karna —
+      woh din sach mein bahut khoobsurat the.
+    </p>
+
+    <h3>🏠 Phir Main Door Chala Gaya...</h3>
+
+    <p>
+      Main doosre ghar shift ho gaya
+      aur dheere-dheere hamara contact toot gaya.
+      Distance ne mujhe tumhari importance
+      aur zyada feel karayi.
+    </p>
+
+    <h3>💍 Mamma Ki Shaadi...</h3>
+
+    <p>
+      Tum Mamma ki shaadi mein aayi thi.
+      Tumhe dekhkar dil mein aaya —
+      <strong>“Aaj propose kar doon?”</strong> 🥹
+      Lekin dosti khone ka darr tha.
+    </p>
+
+    <h3>🌹 16 July 2018...</h3>
+
+    <p>
+      In front of Atithi Palace —
+      woh special memory jo aaj bhi
+      humari story ka ek important milestone hai.
+      Kuch moments simple hote hain,
+      lekin unka meaning bahut deep hota hai. ❤️
+    </p>
+
+    <h3>🏫 School Days...</h3>
+
+    <p>
+      Jab tum mere school mein aayi,
+      main andar se bahut khush hua.
+      Rules ki wajah se hum utna nahi mil paaye,
+      lekin messages aur chhoti outings
+      special rahi.
+    </p>
+
+    <h3>🚗 Our Little Outings...</h3>
+
+    <p>
+      Rajdhani Hotel, Malayepur Dhaba
+      aur doosri outings —
+      jagah se zyada tum important thi. 🌹
+    </p>
+
+    <h3>💋 Woh First & Last Kiss...</h3>
+
+    <p>
+      Woh moment meri memories ka
+      ek special part hai.
+      Time aage badh gaya,
+      lekin yaad wahi hai. ❤️
+    </p>
+
+    <h3>💔 Phir Hum Alag Ho Gaye...</h3>
+
+    <p>
+      Kuch misunderstandings,
+      kuch mistakes aur circumstances...
+      aur hum phir alag hue.
+      Lekin memories aur feelings
+      dil mein rahi.
+    </p>
+
+    <h3>📞 Woh Missed Call...</h3>
+
+    <p>
+      Ek din tumhara unexpected call aaya.
+      Mera exam tha aur main phone receive nahi kar paya.
+      Baad mein tumhara number tumhare friend se mila.
+      Aur kahani ne phir ek naya turn liya. ❤️
+    </p>
+
+    <h3>♾️ We Found Our Way Back...</h3>
+
+    <p>
+      Dooriyan aur misunderstandings ke baad bhi
+      hum phir ek doosre tak pahunch gaye.
+      Kahani ko ek aur chance mila.
+    </p>
+
+    <h3>💗 Tumhari Bhen Ki Shaadi...</h3>
+
+    <p>
+      Tum pink dress mein bahut hi pyaari lag rahi thi.
+      Mann tha tumhare saath picture loon,
+      tumse baat karun,
+      lekin na picture ho paayi na baat.
+      Phir bhi tumhe dekh paana mere liye kaafi tha. 🌸❤️
+    </p>
+
+    <h3>❤️ Aur Ab — Going On...</h3>
+
+    <p>
+      Humari story yahan finish nahi hoti.
+      Ye sirf ek point hai jahan hum
+      abhi khade hain.
+    </p>
+
+    <p class="love-line">
+      The next chapters are still waiting for us. ♾️
+    </p>
+
+    <p>
+      Tum sirf meri girlfriend nahi ho.
+      Tum meri <strong>Baby, Sona, Jaan,
+      Sweetheart, Favourite Person</strong>
+      ho. ❤️
+    </p>
+
+    <p class="love-line">
+      Ayesha... ❤️
+    </p>
+
+    <p class="love-line">
+      I Love Youuuuuuuuuuu... ❤️
+    </p>
+
+    <p style="margin-top:25px">
+      <strong>Forever Yours,</strong>
+      <br>
+      <span style="font-size:23px">
+        Tumhara Jaan ❤️
+      </span>
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FUTURE -->
+
+<section id="futureDoor">
+
+  <div class="section-title">
+
+    <h2>🚪 Our Story Is Still Going On</h2>
+
+    <p>
+      Future ka exact chapter koi nahi jaanta...
+      but humare paas likhne ke liye
+      abhi bahut kuch baaki hai. ❤️
+    </p>
+
+  </div>
+
+  <div class="panel future-door">
+
+    <button
+      class="btn"
+      id="futureBtn"
+      onclick="openFuture()"
+    >
+      Open The Next Chapter ♾️
+    </button>
+
+    <div
+      class="future-message"
+      id="futureMessage"
+    >
+      <span id="futureTyping"></span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CAPSULE -->
+
+<section id="capsule">
+
+  <div class="section-title">
+
+    <h2>💌 One More Little Secret</h2>
+
+    <p>
+      Because one surprise is never enough.
+    </p>
+
+  </div>
+
+  <div
+    class="panel"
+    style="text-align:center"
+  >
+
+    <button
+      class="btn"
+      id="capsuleBtn"
+      onclick="openCapsule()"
+    >
+      Open My Heart Capsule 🔐
+    </button>
+
+    <div
+      class="capsule-message"
+      id="capsuleMessage"
+    >
+      Meri Janu,
+      <br><br>
+
+      agar kabhi tumhe lage ki koi tumhe
+      samajh nahi raha,
+      toh yaad rakhna —
+      tumhara Jaan tumhari baat sunna,
+      tumhe samajhna aur tumhari smile
+      ko protect karna chahta hai. ❤️
+
+      <br><br>
+
+      <strong>
+        That someone is your Jaan. 🫶🏻
+      </strong>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section id="final">
+
+  <div class="final">
+
+    <h2>
+      🎁 One More Chapter
+    </h2>
+
+    <p>
+      Baby, humari story ka final page
+      abhi likha hi nahi gaya.
+    </p>
+
+    <button
+      class="btn"
+      id="finalBtn"
+      onclick="openFinal()"
+    >
+      Open My Heart ❤️
+    </button>
+
+    <div id="finalMsg">
+
+      <strong>
+
+        Ayesha,
+        <br><br>
+
+        our story isn't finished.
+        <br>
+
+        There are still memories to make.
+        <br>
+
+        There are still places to go.
+        <br>
+
+        There are still chapters to write.
+        <br><br>
+
+        And if I get to choose,
+        <br>
+
+        I would still choose you. ❤️♾️
+
+      </strong>
+
+      <br><br>
+
+      <button
+        class="btn"
+        onclick="cinematic()"
+      >
+        One Last Thing ✨
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SECRET ENDING -->
+
+<section
+  id="secretEnding"
+  class="hidden"
+>
+
+  <div class="final">
+
+    <h2>
+      🔓 THE STORY CONTINUES
+    </h2>
+
+    <div
+      style="
+        font-size:70px;
+        margin:20px 0;
+        animation:heartbeat 1.2s infinite
+      "
+    >
+      ❤️
+    </div>
+
+    <p style="font-size:19px">
+
+      Website mein buttons,
+      chapters aur surprises bahut hain…
+
+      <br><br>
+
+      but simplest truth hamesha same hai:
+
+      <br>
+
+      <strong>
+        Tumhara Jaan tumhe phir choose karega. ❤️
+      </strong>
+
+      <br><br>
+
+      And the story goes on... ♾️
+
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  
+
+  <strong>
+    Tumhara Jaan • Tumhara Boyfriend • Tumhara Future Husband 💍
+  </strong>
+
+  <br>
+
+  for <strong>Ayesha</strong>
+
+  <br><br>
+
+  My Baby • My Sweetheart • My Janu • My Sona ❤️♾️
+
+</footer>
+
+<!-- NAVIGATION -->
+
+<nav
+  class="bottom-nav"
+  aria-label="Quick navigation"
+>
+
+  <a href="#home">
+    🏠<br>Home
+  </a>
+
+  <a href="#timeline">
+    📖<br>Story
+  </a>
+
+  <a href="#chapters">
+    🎬<br>Chapters
+  </a>
+
+  <a href="#final">
+    ❤️<br>Final
+  </a>
+
+</nav>
+
+<!-- MUSIC -->
+
+<button
+  class="music"
+  id="musicBtn"
+  onclick="musicToggle()"
+  aria-label="Toggle music"
+>
+  🎵
+</button>
+
+<!-- Put these two files inside: music/song1.mp3 and music/song2.mp3 -->
+<audio id="music1" preload="auto">
+  <source src="https://raw.githubusercontent.com/malik6205/Jaan/main/music/song1.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="music2" preload="auto">
+  <source src="https://raw.githubusercontent.com/malik6205/Jaan/main/music/song2.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="music3" preload="auto">
+  <source src="https://raw.githubusercontent.com/malik6205/Jaan/main/music/song3.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CINEMATIC -->
+
+<div id="cinema">
+
+  <button
+    id="cinemaClose"
+    onclick="closeCinema()"
+    aria-label="Close cinematic ending"
+  >
+    ×
+  </button>
+
+  <div>
+
+    <div class="cinema-heart">
+      ❤️
+    </div>
+
+    <div id="cinemaText"></div>
+
+    <div id="cinemaSub"></div>
+
+  </div>
+
+</div>
+
+<div
+  id="toast"
+  role="status"
+  aria-live="polite"
+></div>
+
+<script>
+
+/* =========================================================
+   BASIC CONFIG
+========================================================= */
+
+const PASSWORD = "18 OCT";
+const GF = "Ayesha";
+
+/*
+  16 July 2018.
+  Since only the date is known, timer starts at midnight.
+*/
+const START_DATE = "2018-07-16T00:00:00";
+
+function $(id){
+  return document.getElementById(id);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function toast(msg){
+
+  const t = $("toast");
+
+  if(!t) return;
+
+  t.textContent = msg;
+
+  t.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(()=>{
+    t.classList.remove("show");
+  },2400);
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function unlock(){
+
+  const input = $("password");
+  const card = $("loginCard");
+  const err = $("error");
+
+  const entered =
+    input.value.trim().toUpperCase();
+
+  if(entered === PASSWORD){
+
+    err.textContent =
+      "✨ Correct. Opening your little universe…";
+
+    err.style.color = "#ffc2d9";
+
+    input.disabled = true;
+
+    card.style.opacity = "0";
+
+    setTimeout(()=>{
+
+      $("login").style.display = "none";
+
+      $("intro").style.display = "grid";
+
+      setTimeout(()=>{
+
+        $("intro").style.opacity = "0";
+
+        setTimeout(()=>{
+
+          $("intro").style.display = "none";
+
+          document.body.classList.remove("locked");
+
+    // Music begins only after successful login.
+    setTimeout(startMusic, 700);
+
+          /* Start music only after login. Browsers may require one user tap. */
+          startMusic();
+
+          for(let i=0;i<55;i++){
+
+            setTimeout(
+              makeHeart,
+              i * 25
+            );
+
+          }
+
+          toast(
+            "Welcome home, my Sona ❤️"
+          );
+
+          window.scrollTo(0,0);
+
+        },850);
+
+      },1200);
+
+    },350);
+
+  }else{
+
+    err.textContent =
+      "🥺 Password galat hai, Baby… try again ❤️";
+
+    input.value = "";
+
+    input.focus();
+
+    card.classList.remove("shake");
+
+    void card.offsetWidth;
+
+    card.classList.add("shake");
+
+  }
+
+}
+
+
+/* ENTER KEY */
+
+$("password").addEventListener(
+  "keydown",
+  e => {
+
+    if(e.key === "Enter"){
+      unlock();
+    }
+
+  }
+);
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function timer(){
+
+  let diff =
+    Math.max(
+      0,
+      Date.now() -
+      new Date(START_DATE).getTime()
+    );
+
+  const days =
+    Math.floor(diff / 86400000);
+
+  diff %= 86400000;
+
+  const hours =
+    Math.floor(diff / 3600000);
+
+  diff %= 3600000;
+
+  const minutes =
+    Math.floor(diff / 60000);
+
+  diff %= 60000;
+
+  const seconds =
+    Math.floor(diff / 1000);
+
+  $("days").textContent = days;
+  $("hours").textContent = hours;
+  $("minutes").textContent = minutes;
+  $("seconds").textContent = seconds;
+}
+
+timer();
+
+setInterval(timer,1000);
+
+
+/* =========================================================
+   13 CHAPTERS
+========================================================= */
+
+const chapters = [
+
+  [
+    "01",
+    "Childhood Ki Dosti 🌸",
+    "Hum bachpan mein mile the — sirf dost the. Saath mein hasi, masti aur childhood enjoy kiya. Tab nahi pata tha ki yahi memories ek din humari story ka foundation banengi."
+  ],
+
+  [
+    "02",
+    "Moved Away 🏠",
+    "Main doosre ghar shift ho gaya aur dheere-dheere contact toot gaya. Distance ke baad tumhari importance aur zyada mehsoos hone lagi."
+  ],
+
+  [
+    "03",
+    "Mamma's Wedding 💍",
+    "Tum Mamma ki shaadi mein aayi. Tumhe dekhkar propose karne ka mann hua, lekin dosti khone ka darr tha. Isliye dil ki baat dil mein reh gayi."
+  ],
+
+  [
+    "04",
+    "In Front of Atithi Palace 🌹",
+    "16 July 2018 — humari story ka ek special milestone. In front of Atithi Palace, ek simple moment future ki ek beautiful memory ban gaya."
+  ],
+
+  [
+    "04",
+    "School Days 🏫",
+    "Tum mere school mein aayi. School rules ki wajah se hum utna nahi mil paaye jitna main chahta tha, lekin messages ne connection ko alive rakha."
+  ],
+
+  [
+    "04",
+    "Little Outings 🚗",
+    "Rajdhani Hotel, Malayepur Dhaba aur doosri little outings special rahi. Jagah se zyada important tum thi."
+  ],
+
+  [
+    "04",
+    "First & Last Kiss 💋",
+    "Woh moment aaj bhi yaad hai. Time aage badh gaya, lekin woh memory humari story ka ek unforgettable chapter ban gayi."
+  ],
+
+  [
+    "04",
+    "Separation 💔",
+    "Misunderstandings, mistakes aur circumstances ki wajah se hum alag hue. Lekin memories aur feelings dil mein rahi."
+  ],
+
+  [
+    "04",
+    "The Missed Call 📞",
+    "Tumhara unexpected call aaya. Mera exam tha aur main phone receive nahi kar paya. Baad mein tumhara number tumhare friend se mila — aur kahani ne phir turn liya."
+  ],
+
+  [
+    "04",
+    "We Reunited ♾️",
+    "Dooriyan aur misunderstandings ke baad hum phir ek doosre tak pahunch gaye. Humari story ko ek aur chance mila."
+  ],
+
+  [
+    "04",
+    "Sister's Wedding 💗",
+    "Tum pink dress mein bahut hi pyaari lag rahi thi. Mann tha tumhare saath picture loon aur tumse baat karun, lekin na picture ho paayi na baat. Phir bhi tumhe dekh paana mere liye kaafi tha."
+  ],
+
+  [
+    "04",
+    "Going On ❤️♾️",
+    "Ye ending nahi hai. Ye sirf humari story ka current chapter hai. Aage ke chapters abhi likhne baaki hain — together."
+  ]
+
+];
+
+
+let ci = 0;
+
+
+function renderChapter(){
+
+  const c = chapters[ci];
+
+  $("chapterNo").textContent = c[0];
+
+  $("chapterTitle").textContent = c[1];
+
+  $("chapterText").textContent = c[2];
+
+  $("chapterProgress").style.width =
+    ((ci + 1) /
+    chapters.length *
+    100) + "%";
+
+  $("prevBtn").disabled =
+    ci === 0;
+
+  $("nextBtn").disabled =
+    ci === chapters.length - 1;
+
+}
+
+
+function nextChapter(){
+
+  if(ci >= chapters.length - 1){
+
+    toast(
+      "This is the current chapter. ❤️"
+    );
+
+    return;
+  }
+
+  ci++;
+
+  renderChapter();
+
+}
+
+
+function prevChapter(){
+
+  if(ci <= 0){
+
+    toast(
+      "You're already at the beginning. 🌸"
+    );
+
+    return;
+  }
+
+  ci--;
+
+  renderChapter();
+
+}
+
+
+renderChapter();
+
+
+/* =========================================================
+   FUTURE DOOR
+========================================================= */
+
+let futureOpened = false;
+
+function openFuture(){
+
+  if(futureOpened) return;
+
+  futureOpened = true;
+
+  const box = $("futureMessage");
+  const out = $("futureTyping");
+  const btn = $("futureBtn");
+
+  box.classList.add("show");
+
+  btn.disabled = true;
+
+  out.textContent = "";
+
+  const message =
+    "Future ka exact chapter koi nahi jaanta... " +
+    "bas itna chahta hoon ki usmein tumhari smile, " +
+    "tumhari presence aur humari story ke naye moments " +
+    "zaroor ho. ❤️♾️";
+
+  let i = 0;
+
+  function type(){
+
+    if(i < message.length){
+
+      out.textContent =
+        message.slice(0, ++i);
+
+      setTimeout(type,25);
+
+    }else{
+
+      toast(
+        "Next chapter opened. ❤️"
+      );
+
+    }
+
+  }
+
+  type();
+
+}
+
+
+/* =========================================================
+   HEART CAPSULE
+========================================================= */
+
+let capsuleOpened = false;
+
+function openCapsule(){
+
+  if(capsuleOpened) return;
+
+  capsuleOpened = true;
+
+  $("capsuleMessage")
+    .classList.add("show");
+
+  $("capsuleBtn").disabled = true;
+
+  for(let i=0;i<15;i++){
+
+    setTimeout(
+      makeHeart,
+      i * 45
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+let finalOpened = false;
+
+function openFinal(){
+
+  if(finalOpened) return;
+
+  finalOpened = true;
+
+  $("finalMsg").style.display =
+    "block";
+
+  $("finalBtn").disabled = true;
+
+  for(let i=0;i<55;i++){
+
+    setTimeout(
+      makeHeart,
+      i * 30
+    );
+
+  }
+
+  toast(
+    "You opened my heart ❤️"
+  );
+
+}
+
+
+/* =========================================================
+   CINEMATIC
+========================================================= */
+
+let cinematicRunning = false;
+
+function cinematic(){
+
+  if(cinematicRunning) return;
+
+  cinematicRunning = true;
+
+  $("cinema").style.display = "grid";
+
+  document.body.classList.add("locked");
+
+  $("cinemaSub").textContent = "";
+
+  const lines = [
+
+    "Some people become memories...",
+
+    "Some become chapters...",
+
+    "But Ayesha became my whole story. ❤️",
+
+    "Aur agar mujhe dobara choose karna ho...",
+
+    "Main tumhe choose karunga. Every single time. ♾️"
+
+  ];
+
+  let i = 0;
+
+  function show(){
+
+    if(i < lines.length){
+
+      $("cinemaText").textContent =
+        lines[i++];
+
+      setTimeout(show,1900);
+
+    }else{
+
+      $("cinemaSub").textContent =
+        "Forever yours — Tumhara Jaan ❤️";
+
+      for(let j=0;j<45;j++){
+
+        setTimeout(
+          makeHeart,
+          j * 40
+        );
+
+      }
+
+    }
+
+  }
+
+  show();
+
+}
+
+
+function closeCinema(){
+
+  $("cinema").style.display =
+    "none";
+
+  document.body.classList.remove(
+    "locked"
+  );
+
+  cinematicRunning = false;
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function makeHeart(){
+
+  const h =
+    document.createElement("div");
+
+  h.className = "floating";
+
+  h.textContent =
+    [
+      "❤️",
+      "💕",
+      "💗",
+      "💖",
+      "🌹",
+      "✨"
+    ][
+      Math.floor(
+        Math.random() * 6
+      )
+    ];
+
+  h.style.left =
+    Math.random() * 100 + "vw";
+
+  h.style.fontSize =
+    (14 + Math.random() * 22) + "px";
+
+  h.style.animationDuration =
+    (4 + Math.random() * 5) + "s";
+
+  document.body.appendChild(h);
+
+  setTimeout(
+    () => h.remove(),
+    9000
+  );
+
+}
+
+
+/* =========================================================
+   BACKGROUND HEARTS
+========================================================= */
+
+setInterval(
+  makeHeart,
+  1800
+);
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+for(let i=0;i<55;i++){
+
+  const s =
+    document.createElement("div");
+
+  s.className = "star";
+
+  s.style.left =
+    Math.random() * 100 + "vw";
+
+  s.style.top =
+    Math.random() * 100 + "vh";
+
+  s.style.animationDelay =
+    Math.random() * 2 + "s";
+
+  document.body.appendChild(s);
+
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+let playing = false;
+let currentSong = 1;
+const music1 = $("music1");
+const music2 = $("music2");
+const musicBtn = $("musicBtn");
+
+function startMusic(){
+  if(playing) return;
+
+  playing = true;
+  currentSong = 1;
+  music1.currentTime = 0;
+
+  music1.play().then(()=>{
+    musicBtn.textContent = "⏸️";
+    toast("Music on, Sona ❤️");
+  }).catch(()=>{
+    playing = false;
+    musicBtn.textContent = "🎵";
+    toast("Tap 🎵 once to start our music ❤️");
+  });
+}
+
+music1.addEventListener("ended", ()=>{
+  if(!playing) return;
+  currentSong = 2;
+  music2.currentTime = 0;
+  music2.play().catch(()=>{ playing = false; });
+});
+
+music2.addEventListener("ended", ()=>{
+  if(!playing) return;
+  currentSong = 1;
+  music1.currentTime = 0;
+  music1.play().catch(()=>{ playing = false; });
+});
+
+function musicToggle(){
+  if(!playing){
+    startMusic();
+  }else{
+    music1.pause();
+    music2.pause();
+    playing = false;
+    musicBtn.textContent = "🎵";
+    toast("Music paused ❤️");
+  }
+}
+
+</script>
+
+</body>
+</html>
+```
